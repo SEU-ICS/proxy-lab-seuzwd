@@ -4,8 +4,9 @@
 # rule). You instructor will type "make" on your specific Makefile to
 # build your proxy from sources.
 
+
 CC = gcc
-CFLAGS = -g -Wall -Werror -std=gnu99
+CFLAGS = -g -Wall -Wextra -std=c89 -pedantic
 LDFLAGS = -lpthread
 
 all: proxy
@@ -17,7 +18,7 @@ proxy.o: proxy.c csapp.h
 	$(CC) $(CFLAGS) -c proxy.c
 
 proxy: proxy.o csapp.o
-	$(CC) $(CFLAGS) proxy.o csapp.o $(LDFLAGS) -o proxy
+	$(CC) $(CFLAGS) proxy.o csapp.o -o proxy $(LDFLAGS)
 
 clean:
-	rm -f *~ *.o proxy core
+	rm -f *.o proxy *~ core
