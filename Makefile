@@ -17,8 +17,7 @@ proxy.o: proxy.c csapp.h
 	$(CC) $(CFLAGS) -c proxy.c
 
 proxy: proxy.o csapp.o
-	$(CC) $(CFLAGS) proxy.o csapp.o -o proxy $(LDFLAGS)
+	$(CC) $(CFLAGS) proxy.o csapp.o $(LDFLAGS) -o proxy
 
 clean:
 	rm -f *~ *.o proxy core
-
